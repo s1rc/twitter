@@ -2,7 +2,7 @@
 
 This is a forked version of thujon/twitter, with the initial goal of adding support for video media uploads.
 
-Twitter API for Laravel 4/5
+Twitter API for Laravel 6
 
 You need to create an application and create your access token in the [Application Management](https://apps.twitter.com/).
 
@@ -47,7 +47,7 @@ Config file has been updated (debug, UPLOAD_URL, ACCESS_TOKEN_URL, REQUEST_TOKEN
 set_new_config() has been renamed reconfig()
 
 
-## Configuration 
+## Configuration
 
 ### Laravel 4
 
@@ -87,7 +87,7 @@ format : object|json|array (default:object)
 * `getCredentials()`
 * `postSettings()` - Updates the authenticating user’s settings.
 * `postSettingsDevice()` - Sets which device Twitter delivers updates to for the authenticating user. Sending none as the device parameter will disable SMS updates.
-* `postProfile()` - Sets some values that users are able to set under the “Account” tab of their settings page. Only the parameters specified will be updated. 
+* `postProfile()` - Sets some values that users are able to set under the “Account” tab of their settings page. Only the parameters specified will be updated.
 * `postBackground()` - Updates the authenticating user’s profile background image. This method can also be used to enable or disable the profile background image.
 * `postProfileImage()` - Updates the authenticating user’s profile image. Note that this method expects raw multipart data, not a URL to an image.
 * `destroyUserBanner()` - Removes the uploaded profile banner for the authenticating user. Returns HTTP 200 upon success.
@@ -214,7 +214,7 @@ format : object|json|array (default:object)
 * `mutedUsers()` - Returns an array of user objects the authenticating user has muted.
 * `getSuggesteds()` - Access the users in a given category of the Twitter suggested user list.
 * `getSuggestions()` - Access to Twitter’s suggested user list. This returns the list of suggested user categories. The category can be used in GET users / suggestions / :slug to get the users in that category.
-* `getSuggestedsMembers()` - Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user. 
+* `getSuggestedsMembers()` - Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.
 
 
 ## Helper Functions
@@ -411,7 +411,7 @@ $final_media = Twitter::uploadMedia([
     'media_id' => $init_media->media_id_string,
 ]);
 
-// After a video has been uploaded it can take Twitter some time to process it before 
+// After a video has been uploaded it can take Twitter some time to process it before
 // it can be used in a Tweet. A better approach than the one below would be to use a
 // queue (e.g. Redis), but this demonstrates the logic.
 $waits = 0;
@@ -436,7 +436,7 @@ while($waits <= 3) {
             default:
             	// Check how long Twitter tells us to wait for before checking the status again
                 $status_media->processing_info->check_after_secs;
-                
+
                 // Sleep for that amount of time
                 sleep($status_media->processing_info->check_after_secs);
 
@@ -455,7 +455,7 @@ $post_response = Twitter::postTweet([
     'media_ids' => $final_media->media_id_string
 ]);
 
-            
+
 ```
 
 
