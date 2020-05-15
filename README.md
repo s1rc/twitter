@@ -2,7 +2,7 @@
 
 This is a forked version of thujon/twitter, with the initial goal of adding support for video media uploads.
 
-Twitter API for Laravel 6
+Twitter API for Laravel 7
 
 You need to create an application and create your access token in the [Application Management](https://apps.twitter.com/).
 
@@ -11,7 +11,7 @@ You need to create an application and create your access token in the [Applicati
 
 Add `scottybo/twitter` to `composer.json`.
 ```
-"scottybo/twitter": "~2.0"
+"scottybo/twitter": "~3.0"
 ```
 
 Run `composer update` to pull down the latest version of Twitter.
